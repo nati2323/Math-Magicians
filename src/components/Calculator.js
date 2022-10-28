@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.css';
 class ResultIcone extends React.Component {
-  // eslint-disable-next-line
     constructor(props){
         super(props)
     }
@@ -41,7 +40,6 @@ class LigneOfButton extends React.Component {
   }
 }
 class CalculatorDesign extends React.Component {
-  // eslint-disable-next-line
   constructor(props){
     super(props)
   }
