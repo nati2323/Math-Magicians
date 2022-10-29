@@ -4,6 +4,15 @@ function isNumber(item) {
   return !!item.match(/[0-9]+/);
 }
 
+/**
+ * Given a button name and a calculator data object, return an updated
+ * calculator data object.
+ *
+ * Calculator data object contains:
+ *   total:s      the running total
+ *   next:String       the next number to be operated on with the total
+ *   operation:String  +, -, etc.
+ */
 export default function calculate(obj, buttonName) {
   if (buttonName === 'AC') {
     return {
@@ -19,13 +28,13 @@ export default function calculate(obj, buttonName) {
     }
     // If there is an operation, update next
     if (obj.operation) {
-      if (obj.next) {
+      if (obj.next && obj.next !== '0') {
         return { ...obj, next: obj.next + buttonName };
       }
       return { ...obj, next: buttonName };
     }
     // If there is no operation, update next and clear the value
-    if (obj.next) {
+    if (obj.next && obj.next !== '0') {
       return {
         next: obj.next + buttonName,
         total: null,
@@ -45,15 +54,15 @@ export default function calculate(obj, buttonName) {
       return { ...obj, next: `${obj.next}.` };
     }
     if (obj.operation) {
-      return { next: '0.' };
+      return { ...obj, next: '0.' };
     }
     if (obj.total) {
       if (obj.total.includes('.')) {
         return {};
       }
-      return { total: `${obj.total}.` };
+      return { ...obj, next: `${obj.total}.` };
     }
-    return { total: '0.' };
+    return { ...obj, next: '0.' };
   }
 
   if (buttonName === '=') {
@@ -95,6 +104,10 @@ export default function calculate(obj, buttonName) {
   if (obj.operation) {
     if (obj.total && !obj.next) {
       return { ...obj, operation: buttonName };
+    }
+    
+    if (!obj.total) {
+      return { total: 0, operation: buttonName };
     }
 
     return {
