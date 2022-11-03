@@ -1,62 +1,51 @@
 import React, { useState } from 'react';
-import './style.css';
-import { ResultIcone } from './resultIcone';
-import { LigneOfButton } from './ligneOfButton';
+import './calculator.css';
 import calculate from '../logic/calculate';
- const CalculatorDesign = () => {
-  const displayResult = () => {
-    if (Object.keys(dataObject).length === 0) {
-      return 0;
-    }
-    if (dataObject.total) {
-      if (!dataObject.operation) {
-        return dataObject.total;
-      }
-      if (!dataObject.next) {
-        if (!prev) {
-            return dataObject.operation;
-        }
-        return dataObject.total;
-      }
-      return dataObject.next;
-    }
-    if (dataObject.operation) {
-      return dataObject.operation;
-    }
-    if (dataObject.next) {
-      return dataObject.next;
-    }
-    return 0;
 
-  };
-  const [dataObject, setDataObject] = useState({});
-  const [prev, setPrev] = useState(null);
-  const handleClick = (e) => {
-    const target = e.target;
-    const child = target.children;
-    let targetElem;
-    if ( child.length > 0) {
-      targetElem = child[0];
-    } else {
-      targetElem = target;
-    }
-    const buttonName = targetElem.textContent;
-    setDataObject(calculate(dataObject, buttonName));
-    setPrev(dataObject.next);
+const Calculator = () => {
+  const [state, setState] = useState({
+    total: 0,
+    next: null,
+    operation: null,
+  });
+
+  const handleEvent = (e) => {
+    setState({ ...state, ...calculate(state, e.target.name) });
   };
 
   return (
-    <div className ="container">
-        <h2>Let's do some math!</h2>
-        <div className="calculator-container">
-          <ResultIcone total={displayResult()}/>
-          <LigneOfButton textBtns={['AC', '+/-', '%', '÷']} order={2} handler={handleClick} />
-          <LigneOfButton textBtns={['7', '8', '9', 'x']} order={3} handler={handleClick} />
-          <LigneOfButton textBtns={['4', '5', '6', '-']} order={4} handler={handleClick} />
-          <LigneOfButton textBtns={['1', '2', '3', '+']} order={5} handler={handleClick} />
-          <LigneOfButton textBtns={['0', '.','=']} order={6} handler={handleClick} />
+    <div className="calculatorSection">
+      <h1>Let&#39;s do some math!</h1>
+      <div className="calc">
+        <p className="result">
+          <span>{state.total}</span>
+          <span>{state.operation}</span>
+          <span>{state.next}</span>
+        </p>
+        <div className="calculator-app">
+          <button type="button" className="greyButtons" name="AC" onClick={handleEvent}>AC</button>
+          <button type="button" className="greyButtons" name="+/-" onClick={handleEvent}>+/-</button>
+          <button type="button" className="greyButtons" name="%" onClick={handleEvent}>% </button>
+          <button type="button" className="orangeButtons" name="÷" onClick={handleEvent}>÷</button>
+          <button type="button" className="greyButtons" name="7" onClick={handleEvent}>7</button>
+          <button type="button" className="greyButtons" name="8" onClick={handleEvent}>8</button>
+          <button type="button" className="greyButtons" name="9" onClick={handleEvent}>9</button>
+          <button type="button" className="orangeButtons" name="x" onClick={handleEvent}>x</button>
+          <button type="button" className="greyButtons" name="4" onClick={handleEvent}>4</button>
+          <button type="button" className="greyButtons" name="5" onClick={handleEvent}>5</button>
+          <button type="button" className="greyButtons" name="6" onClick={handleEvent}>6</button>
+          <button type="button" className="orangeButtons" name="-" onClick={handleEvent}>-</button>
+          <button type="button" className="greyButtons" name="1" onClick={handleEvent}>1</button>
+          <button type="button" className="greyButtons" name="2" onClick={handleEvent}>2</button>
+          <button type="button" className="greyButtons" name="3" onClick={handleEvent}>3</button>
+          <button type="button" className="orangeButtons" name="+" onClick={handleEvent}>+</button>
+          <button type="button" className="greyButton-0" name="0" onClick={handleEvent}>0</button>
+          <button type="button" className="greyButtons" name="." onClick={handleEvent}>.</button>
+          <button type="button" className="orangeButtons" name="=" onClick={handleEvent}>=</button>
         </div>
       </div>
+    </div>
   );
 };
-export { CalculatorDesign };
+
+export default Calculator;

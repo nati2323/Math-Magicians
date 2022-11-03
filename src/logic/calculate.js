@@ -67,19 +67,11 @@ export default function calculate(obj, buttonName) {
 
   if (buttonName === '=') {
     if (obj.next && obj.operation) {
-      try {
-        return {
-          total: operate(obj.total, obj.next, obj.operation),
-          next: null,
-          operation: null,
-        };
-      } catch (err) {
-        return {
-          total: "Can't make modulo of 0!",
-          next: null,
-          operation: null,
-        };
-      }
+      return {
+        total: operate(obj.total, obj.next, obj.operation),
+        next: null,
+        operation: null,
+      };
     }
     // '=' with no operation, nothing to do
     return {};
@@ -99,11 +91,12 @@ export default function calculate(obj, buttonName) {
 
   // When the user presses an operation button without having entered
   // a number first, do nothing.
-  // if (!obj.next && !obj.total) {
-  //   return {};
-  // }
+  if (!obj.next && !obj.total) {
+    return {};
+  }
 
   // User pressed an operation after pressing '='
+
   if (!obj.next && obj.total && !obj.operation) {
     return { ...obj, operation: buttonName };
   }
@@ -113,19 +106,12 @@ export default function calculate(obj, buttonName) {
     if (obj.total && !obj.next) {
       return { ...obj, operation: buttonName };
     }
-    try {
-      return {
-        total: operate(obj.total, obj.next, obj.operation),
-        next: null,
-        operation: buttonName,
-      };
-    } catch (err) {
-      return {
-        total: "Can't make modulo of 0!",
-        next: null,
-        operation: buttonName,
-      };
-    }
+
+    return {
+      total: operate(obj.total, obj.next, obj.operation),
+      next: null,
+      operation: buttonName,
+    };
   }
 
   // no operation yet, but the user typed one
