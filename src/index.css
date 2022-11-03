@@ -9,7 +9,7 @@
 body {
   background-color: #fff;
   background-size: cover;
-  box-shadow: 0 8px 32px 0 rgba(130, 135, 202, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(145, 146, 167, 0.37);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
