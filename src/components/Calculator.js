@@ -3,8 +3,7 @@ import './style.css';
 import { ResultIcone } from './resultIcone';
 import { LigneOfButton } from './ligneOfButton';
 import calculate from '../logic/calculate';
-/* eslint-disable */ 
-const CalculatorDesign = () => {
+ const CalculatorDesign = () => {
   const displayResult = () => {
     if (Object.keys(dataObject).length === 0) {
       return 0;

@@ -1,6 +1,5 @@
 import React from 'react';
-/* eslint-disable */ 
-export const Quotepage = () => {
+ export const Quotepage = () => {
   return (
        <p style={{
         fontFamily: 'Montserrat,sans-serif',
