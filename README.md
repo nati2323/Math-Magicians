@@ -17,8 +17,7 @@ Math magicians is a website for all fans of mathematics. It is a Single Page App
 - React
  
 ### Installation 
-- git clone `git clone https://github.com/nati2323/Math-Magicians.git` .
-
+- git clone `git clone https://github.com/nati2323/Math-Magicians` .
 
 #### Install dependencies
 ```
