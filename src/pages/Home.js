@@ -1,8 +1,7 @@
 import React from 'react';
-
 const Home = () => (
     <div className="container">
-      <h1>Welcome to our page!</h1>
+       <h1>Welcome to our page!</h1>
       <p>
         Math Magicians is a single page application (SPA)
         built with React for people who love mathematics.
