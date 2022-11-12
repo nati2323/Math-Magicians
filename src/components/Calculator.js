@@ -13,6 +13,8 @@ const Calculator = () => {
     setState({ ...state, ...calculate(state, e.target.name) });
   };
 
+  const books = [{title: 'bear', author: 'hamid'}]
+
   return (
     <div className="calculatorSection">
       <h1>Let&#39;s do some math!</h1>

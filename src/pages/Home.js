@@ -1,8 +1,6 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 
 const Home = () => (
-  <Route path="/">
     <div className="container">
       <h1>Welcome to our page!</h1>
       <p>
@@ -19,6 +17,5 @@ const Home = () => (
         allows us to devote more time in understanding the problem.
       </p>
     </div>
-  </Route>
 );
 export default Home;
