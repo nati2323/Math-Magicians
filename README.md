@@ -45,6 +45,14 @@ npm start
 - GitHub: [@Natnael](https://github.com/nati2323)
 - LinkedIn: [@Natnael Amare](https://www.linkedin.com/in/natnael-amare-b5844510a/)
 
+## Author 
+
+👤 **Riyaz Ahmed**
+
+GitHub: [@r-ahmed2022 ](https://github.com/r-ahmed2022)
+LinkedIn: [riyaz-ahmed ](https://www.linkedin.com/in/riyaz-ahmed-4216a71a8/)
+Twitter: [https://twitter.com ](https://twitter.com)
+
 
 ## 🤝 Contributing
 
