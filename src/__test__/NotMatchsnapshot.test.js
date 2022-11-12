@@ -4,7 +4,7 @@ import NotMatch from '../pages/NotMatch';
 
 it('NotMatch renders correctly', () => {
   const tree = renderer.create(
-      <NotMatch />
+        <NotMatch />
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
